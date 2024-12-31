@@ -8,8 +8,19 @@ import styles from './BlogCard.module.css'
 
 const BlogCard = ({ blog }) => {
   return (
-    <NavLink>
-      
+
+    
+    <NavLink to={`/blogs/${blog._id}`}>
+      <article className={styles.container}>
+        <header>
+          <span>
+            <h1>{blog.title}</h1>
+            <Icon category={blog.category} />
+          </span>
+          <AuthorInfo content={blog} />
+        </header>
+        <p>{blog.text}</p>
+      </article>
     </NavLink>
   )
 }

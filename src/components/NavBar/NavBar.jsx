@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 import logo from '../../assets/branding/logo.svg'
 
 // css
-// import styles from './NavBar.module.css'
+import styles from './NavBar.module.css'
 
 const NavBar = ({ user, handleLogout }) => {
 
@@ -26,7 +26,7 @@ const NavBar = ({ user, handleLogout }) => {
   )
 
   return (
-    <nav /*className={styles.container}*/>
+    <nav className={styles.container}>
       <NavLink to="/"><img src={logo} alt="A cute owl" /></NavLink>
       {user ? protectedLinks : publicLinks}
     </nav>
