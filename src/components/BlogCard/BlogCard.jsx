@@ -1,11 +1,16 @@
+import { NavLink } from 'react-router-dom'
+
+import Icon from '../Icon/Icon'
+import AuthorInfo from '../AuthorInfo/AuthorInfo'
+
 // css
 import styles from './BlogCard.module.css'
 
-const BlogCard = () => {
+const BlogCard = ({ blog }) => {
   return (
-    <article className={styles.container}>
-      BlogCard
-    </article>
+    <NavLink>
+      
+    </NavLink>
   )
 }
 
