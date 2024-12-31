@@ -7,9 +7,8 @@ import AuthorInfo from '../AuthorInfo/AuthorInfo'
 import styles from './BlogCard.module.css'
 
 const BlogCard = ({ blog }) => {
+  console.log(blog)
   return (
-
-    
     <NavLink to={`/blogs/${blog._id}`}>
       <article className={styles.container}>
         <header>

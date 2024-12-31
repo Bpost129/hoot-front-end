@@ -7,7 +7,6 @@ import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
-import ChangePassword from './pages/ChangePassword/ChangePassword'
 import BlogList from './pages/BlogList/BlogList'
 
 // components
@@ -26,6 +25,14 @@ function App() {
   const [blogs, setBlogs] = useState([])
   const navigate = useNavigate()
 
+  useEffect(() => {
+    const fetchAllBlogs = async () => {
+      const blogsData = await blogService.index()
+      setBlogs(blogsData)
+    }
+    if (user) fetchAllBlogs()
+  }, [user])
+
   const handleLogout = () => {
     authService.logout()
     setUser(null)
@@ -36,13 +43,6 @@ function App() {
     setUser(authService.getUser())
   }
 
-  useEffect(() => {
-    const fetchAllBlogs = async () => {
-      const blogsData = await blogService.index()
-      setBlogs(blogsData)
-    }
-    if (user) fetchAllBlogs()
-  }, [user])
 
   return (
     <>
@@ -64,14 +64,6 @@ function App() {
         <Route
           path="/auth/login"
           element={<Login handleAuthEvt={handleAuthEvt} />}
-        />
-        <Route
-          path="/auth/change-password"
-          element={
-            <ProtectedRoute user={user}>
-              <ChangePassword handleAuthEvt={handleAuthEvt} />
-            </ProtectedRoute>
-          }
         />
         <Route
           path='/blogs'
