@@ -45,6 +45,11 @@ function App() {
     setUser(authService.getUser())
   }
 
+  const handleAddBlog = async (blogFormData) => {
+    const newBlog = await blogService.create(blogFormData)
+    setBlogs([newBlog, ...blogs])
+    navigate('/blogs')
+  }
 
   return (
     <>
@@ -87,7 +92,7 @@ function App() {
           path='/blogs/new'
           element={
             <ProtectedRoute user={user} >
-              <NewBlog />
+              <NewBlog handleAddBlog={handleAddBlog} />
             </ProtectedRoute>
           }
         />

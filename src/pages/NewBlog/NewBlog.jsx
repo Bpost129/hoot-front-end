@@ -3,7 +3,7 @@ import { useState } from 'react'
 // css
 import styles from './NewBlog.module.css'
 
-const NewBlog = () => {
+const NewBlog = (props) => {
   const [formData, setFormData] = useState({
     title: '',
     text: '',
@@ -12,7 +12,7 @@ const NewBlog = () => {
 
   const handleSubmit = e => {
     e.preventDefault()
-
+    props.handleAddBlog(formData)
   }
 
   const handleChange = e => {
