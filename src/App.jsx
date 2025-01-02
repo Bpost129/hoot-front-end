@@ -9,6 +9,7 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import BlogList from './pages/BlogList/BlogList'
 import BlogDetails from './pages/BlogDetails/BlogDetails'
+import NewBlog from './pages/NewBlog/NewBlog'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -79,6 +80,14 @@ function App() {
           element={
             <ProtectedRoute user={user}>
               <BlogDetails user={user} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path='/blogs/new'
+          element={
+            <ProtectedRoute user={user} >
+              <NewBlog />
             </ProtectedRoute>
           }
         />
