@@ -39,7 +39,7 @@ const BlogDetails = (props) => {
                 <NavLink to='/blogs/edit' state={blog}>
                   <Icon category='Edit' />
                 </NavLink>
-                <button>
+                <button onClick={() => props.handleDeleteBlog(blogId)} >
                   <Icon category='Trash' />
                 </button>
               </>
