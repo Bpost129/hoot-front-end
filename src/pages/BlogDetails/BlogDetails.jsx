@@ -5,6 +5,7 @@ import * as blogService from '../../services/blogService'
 
 import Loading from '../../components/Loading/Loading'
 import AuthorInfo from '../../components/AuthorInfo/AuthorInfo'
+import NewComment from '../../components/NewComment/NewComment'
 
 // css
 import styles from './BlogDetails.module.css'
@@ -51,6 +52,7 @@ const BlogDetails = (props) => {
       </article>
       <section>
         <h1>Comments</h1>
+        <NewComment />
       </section>    
     </main>
   )
