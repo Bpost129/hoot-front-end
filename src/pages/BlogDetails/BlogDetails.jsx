@@ -6,6 +6,7 @@ import * as blogService from '../../services/blogService'
 import Loading from '../../components/Loading/Loading'
 import AuthorInfo from '../../components/AuthorInfo/AuthorInfo'
 import NewComment from '../../components/NewComment/NewComment'
+import Comments from '../../components/Comments/Comments'
 
 // css
 import styles from './BlogDetails.module.css'
@@ -57,6 +58,7 @@ const BlogDetails = (props) => {
       <section>
         <h1>Comments</h1>
         <NewComment handleAddComment={handleAddComment} />
+        <Comments comments={blog.comments} user={props.user} />
       </section>    
     </main>
   )

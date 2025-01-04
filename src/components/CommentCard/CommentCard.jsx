@@ -1,7 +1,12 @@
-const CommentCard = () => {
+import AuthorInfo from "../AuthorInfo/AuthorInfo"
+
+const CommentCard = ({ comment, user }) => {
   return (
     <article>
-      <p>CommentCard</p>
+      <header>
+        <AuthorInfo content={comment} />
+      </header>
+      <p>{comment.text}</p>
     </article>
   )
 }
