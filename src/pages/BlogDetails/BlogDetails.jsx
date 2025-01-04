@@ -23,7 +23,11 @@ const BlogDetails = (props) => {
     fetchBlog()
   }, [blogId])
 
-  // console.log('Blog State:', blog)
+  const handleAddComment = async (commentFormData) => {
+    const newComment = await blogService.createComment(blogId, commentFormData)
+    setBlog({ ...blog, comments: [...blog.comments, newComment]})
+  }
+
   if (!blog) return <Loading />
 
   return (
@@ -52,7 +56,7 @@ const BlogDetails = (props) => {
       </article>
       <section>
         <h1>Comments</h1>
-        <NewComment />
+        <NewComment handleAddComment={handleAddComment} />
       </section>    
     </main>
   )
